@@ -15,7 +15,7 @@ namespace ListWithThread
     /// </summary>
     class Program
     {
-        //not working. NO THREAD function yet
+        //remove not working
 
         static void Main(string[] args)
         {
