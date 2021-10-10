@@ -46,6 +46,8 @@ namespace TaskExampleDemo
 
             Task_waitAll();
 
+            TaskwithFunc();
+
             Console.ReadLine();
         }
 
@@ -84,6 +86,24 @@ namespace TaskExampleDemo
             }
             Task.WaitAll(tasks.ToArray()); 
             //waitAll => takes an array of tasks and wait for them to complete
+        }
+
+        //Task with func => to return a value with Task
+        public static void TaskwithFunc()
+        {
+            Func<object, int> func = (obj) =>
+            {
+                Console.WriteLine("this is task with func. with parameter obj");
+                return ((int)obj* 100); //just random num
+            };
+            //task with a return type
+
+            var result = Task<int>.Run(() =>
+            {
+                return func(100);
+            });
+            Console.WriteLine(result.Result);
+            
         }
     }
 
